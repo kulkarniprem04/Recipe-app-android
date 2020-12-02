@@ -30,11 +30,11 @@ public class searchActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId())
                 {
-                    case R.id.nav_explore:
-                        selectedFragment = new LandingFragment();
-                        break;
                     case R.id.nav_search:
                         selectedFragment = new SearchFragment();
+                        break;
+                    case R.id.nav_explore:
+                        selectedFragment = new LandingFragment();
                         break;
                     case R.id.nav_bookmark:
                         selectedFragment =  new BookmarkFragment();
