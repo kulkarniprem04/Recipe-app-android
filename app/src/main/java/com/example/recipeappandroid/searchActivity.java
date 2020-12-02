@@ -23,7 +23,7 @@ public class searchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         bottomNavigationView = findViewById(R.id.bottom_nav);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new LandingFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new SearchFragment()).commit();
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
