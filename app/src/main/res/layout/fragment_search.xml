@@ -33,16 +33,39 @@
 
 
 
-        <SearchView
-            android:layout_width="wrap_content"
+        <EditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:queryHint="Find your Today's Recipe"
-            android:iconifiedByDefault="false"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="100dp"
             android:background="@drawable/grey_bg"
+            android:id="@+id/searchbar"
             />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="search"
+            android:background="@drawable/rounded_btn"
+            android:layout_below="@+id/searchbar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:id="@+id/button1"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/button1">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Fetched Data here"
+                android:id="@+id/fetcheddata"
+                />
+        </ScrollView>
+
+
     </RelativeLayout>
+
 
 
 </FrameLayout>
