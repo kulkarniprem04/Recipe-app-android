@@ -104,23 +104,22 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="Happy Cooking"
-                android:layout_marginLeft="50dp"
-                android:textSize="35dp"
+                android:layout_marginLeft="55dp"
+                android:textSize="38dp"
                 android:fontFamily="@font/quicksand_bold"
-                android:layout_marginTop="430dp"/>
+                android:layout_marginTop="440dp"/>
 
         <Button
             android:id="@+id/button"
-            android:layout_width="160dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="550dp"
             android:layout_marginLeft="50dp"
             android:layout_alignParentLeft="true"
             android:background="@drawable/rounded_btn"
             android:fontFamily="@font/quicksand_bold"
-            android:shadowColor="#C3C3C3"
-            android:shadowDx="6"
-            android:shadowDy="12"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
             android:text="Get Started" />
 
         </RelativeLayout>
