@@ -33,16 +33,18 @@
 
 
 
-        <EditText
-            android:layout_width="match_parent"
+        <SearchView
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="100dp"
-            android:background="@drawable/grey_bg"
+            android:queryHint="Find your today's recipe"
+            android:iconifiedByDefault="false"
+            android:background="@drawable/searchoval"
             android:id="@+id/searchbar"
             />
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="search"
             android:background="@drawable/rounded_btn"
@@ -51,17 +53,35 @@
             android:layout_marginTop="10dp"
             android:id="@+id/button1"/>
 
-        <ScrollView
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_man_searching_location_using_gps_2127154_0"
+            android:layout_below="@+id/button1"
+            android:id="@+id/searching_logo"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/searching_text"
+            android:text="Search for yummy delicacies today"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:fontFamily="@font/quicksand"
+            android:layout_below="@+id/searching_logo"
+            android:textSize="25dp"
+            android:textColor="@color/black"/>
+
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/button1">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Fetched Data here"
-                android:id="@+id/fetcheddata"
-                />
-        </ScrollView>
+            android:layout_below="@+id/button1"
+            android:id="@+id/recycler_view"
+            >
+
+
+        </androidx.recyclerview.widget.RecyclerView>
 
 
     </RelativeLayout>
