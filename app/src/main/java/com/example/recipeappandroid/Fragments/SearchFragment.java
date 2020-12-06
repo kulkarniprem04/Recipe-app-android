@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +16,13 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.recipeappandroid.Adapter.RecipeAdapter;
 import com.example.recipeappandroid.Model.Recipe;
@@ -42,6 +46,8 @@ public class SearchFragment extends Fragment {
     public static ArrayList<Recipe> recipeList;
     public static RecipeAdapter recipeAdapter;
     private  RequestQueue mRequestQueue;
+    private String Api_id= "3f335994";
+    private String Api_key = "8e99e327d1f2130dc6ab3422e26a95e8";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -62,7 +68,6 @@ public class SearchFragment extends Fragment {
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
         //recipeAdapter = new RecipeAdapter();
-        recyclerView.setAdapter(recipeAdapter);
         recipeList = new ArrayList<>();
         //getData();
 
@@ -72,8 +77,37 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 query = searchbar.getQuery().toString();
-                String url = "http://localhost:5000/" + query;
-                JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
+                String url = "https://api.edamam.com/search?q=" + query + "&app_id=" + Api_id + "&app_key=" + Api_key;
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url,null, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray hits = response.getJSONArray("hits");
+                            for (int i =0;i<hits.length();i++) {
+                                JSONObject jsonObject = hits.getJSONObject(i);
+                                JSONObject recipe = jsonObject.getJSONObject("recipe");
+                                String recipe_img = recipe.getString("image");
+                                String recipe_title = recipe.getString("label");
+                                String recipe_data =  recipe.getString("source");
+                                recipeList.add(new Recipe(recipe_img,recipe_title,recipe_data));
+                            }
+                            recipeAdapter = new RecipeAdapter(getContext(),recipeList);
+                            recyclerView.setAdapter(recipeAdapter);
+                            recipeAdapter.notifyDataSetChanged();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                    }
+                });
+                mRequestQueue = Volley.newRequestQueue(getContext());
+                mRequestQueue.add(jsonObjectRequest);
+                /*JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
                         try {
@@ -85,8 +119,9 @@ public class SearchFragment extends Fragment {
                                 String recipe_title = recipes.getString("label");
                                 String recipe_data =  recipes.getString("source");
                                 recipeList.add(new Recipe(recipe_img,recipe_title,recipe_data));
+                                Log.d("data",recipe_title);
                             }
-                            recipeAdapter = new RecipeAdapter(getContext(), recipeList);
+                            //recipeAdapter = new RecipeAdapter(getContext(), recipeList);
                             //recyclerView.setAdapter(recipeAdapter);
                             recipeAdapter.notifyDataSetChanged();
                         } catch (JSONException e) {
@@ -101,9 +136,25 @@ public class SearchFragment extends Fragment {
                         //Toast.makeText(SearchFragment.this,"Error Occured",Toast.LENGTH_SHORT).show();
                         error.printStackTrace();
                     }
-                });
-                mRequestQueue = Volley.newRequestQueue(getContext());
-                mRequestQueue.add(jsonArrayRequest);
+                });*/
+
+                /*jsonArrayRequest.setRetryPolicy(new RetryPolicy() {
+                    @Override
+                    public int getCurrentTimeout() {
+                        return 3000;
+                    }
+
+                    @Override
+                    public int getCurrentRetryCount() {
+                        return 3000;
+                    }
+
+                    @Override
+                    public void retry(VolleyError error) throws VolleyError {
+
+                    }
+                });*/
+
                /* Log.d("QUEEEERRRYYYY",query);
                 ApiCall process = new ApiCall(searching_logo,searching_text);
                 process.execute(query);*/
@@ -111,7 +162,6 @@ public class SearchFragment extends Fragment {
 
             }
         });
-
         return view;
 
     }

@@ -26,9 +26,9 @@ public class RecipeAdapter extends RecyclerView.Adapter<recipeViewHolder>{
         mRecipe = recipe;
     }
 
-    public void setData(ArrayList<Recipe> mRecipe) {
+    /*public void setData(ArrayList<Recipe> mRecipe) {
         this.mRecipe = mRecipe;
-    }
+    }*/
 
     @NonNull
     @Override
