@@ -81,6 +81,7 @@ public class SearchFragment extends Fragment {
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url,null, new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
+                        recipeList.clear();
                         try {
                             JSONArray hits = response.getJSONArray("hits");
                             for (int i =0;i<hits.length();i++) {
@@ -89,11 +90,12 @@ public class SearchFragment extends Fragment {
                                 String recipe_img = recipe.getString("image");
                                 String recipe_title = recipe.getString("label");
                                 String recipe_data =  recipe.getString("source");
+                                Log.d("LABEL",recipe_title);
                                 recipeList.add(new Recipe(recipe_img,recipe_title,recipe_data));
                             }
                             recipeAdapter = new RecipeAdapter(getContext(),recipeList);
                             recyclerView.setAdapter(recipeAdapter);
-                            recipeAdapter.notifyDataSetChanged();
+                            //recipeAdapter.notifyDataSetChanged();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
