@@ -45,7 +45,8 @@ public class SearchFragment extends Fragment {
     RecyclerView recyclerView;
     public static ArrayList<Recipe> recipeList;
     public static RecipeAdapter recipeAdapter;
-    private  RequestQueue mRequestQueue;
+    public RequestQueue mRequestQueue;
+    
     private String Api_id= "3f335994";
     private String Api_key = "8e99e327d1f2130dc6ab3422e26a95e8";
 

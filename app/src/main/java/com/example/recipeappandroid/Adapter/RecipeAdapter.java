@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +20,16 @@ import java.util.ArrayList;
 public class RecipeAdapter extends RecyclerView.Adapter<recipeViewHolder>{
     private Context mContext;
     private ArrayList<Recipe> mRecipe;
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener)
+    {
+        mListener = listener;
+    }
 
 
     public RecipeAdapter(Context context,ArrayList<Recipe> recipe) {
@@ -49,4 +60,6 @@ public class RecipeAdapter extends RecyclerView.Adapter<recipeViewHolder>{
     public int getItemCount() {
         return mRecipe.size();
     }
-}
+
+
+    }
