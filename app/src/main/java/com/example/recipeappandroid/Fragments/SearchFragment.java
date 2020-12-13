@@ -1,5 +1,6 @@
 package com.example.recipeappandroid.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -27,6 +28,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.recipeappandroid.Adapter.RecipeAdapter;
 import com.example.recipeappandroid.Model.Recipe;
 import com.example.recipeappandroid.R;
+import com.example.recipeappandroid.RecipeActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,8 +36,11 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class SearchFragment extends Fragment {
+public class SearchFragment extends Fragment implements RecipeAdapter.OnItemClickListener {
 
+    public static final String EXTRA_URL = "ImageUrl";
+    public static final String EXTRA_TITLE = "RecipeTitle";
+    public static final String EXTRA_DATA = "RecipeData";
     Button click;
     //public static TextView fetchedText;
     ImageView searching_logo;
@@ -96,6 +101,7 @@ public class SearchFragment extends Fragment {
                             }
                             recipeAdapter = new RecipeAdapter(getContext(),recipeList);
                             recyclerView.setAdapter(recipeAdapter);
+                            recipeAdapter.setOnItemClickListener(SearchFragment.this);
                             //recipeAdapter.notifyDataSetChanged();
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -110,65 +116,23 @@ public class SearchFragment extends Fragment {
                 });
                 mRequestQueue = Volley.newRequestQueue(getContext());
                 mRequestQueue.add(jsonObjectRequest);
-                /*JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        try {
-                            for (int i = 0; i < response.length(); i++) {
-                                JSONObject jsonObject = response.getJSONObject(i);
-                                JSONObject recipes = jsonObject.getJSONObject("recipe");
-                                //Recipe recipe = new Recipe();
-                                String recipe_img = recipes.getString("image");
-                                String recipe_title = recipes.getString("label");
-                                String recipe_data =  recipes.getString("source");
-                                recipeList.add(new Recipe(recipe_img,recipe_title,recipe_data));
-                                Log.d("data",recipe_title);
-                            }
-                            //recipeAdapter = new RecipeAdapter(getContext(), recipeList);
-                            //recyclerView.setAdapter(recipeAdapter);
-                            recipeAdapter.notifyDataSetChanged();
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        //Toast.makeText(SearchFragment.this,"Error Occured",Toast.LENGTH_SHORT).show();
-                        error.printStackTrace();
-                    }
-                });*/
-
-                /*jsonArrayRequest.setRetryPolicy(new RetryPolicy() {
-                    @Override
-                    public int getCurrentTimeout() {
-                        return 3000;
-                    }
-
-                    @Override
-                    public int getCurrentRetryCount() {
-                        return 3000;
-                    }
-
-                    @Override
-                    public void retry(VolleyError error) throws VolleyError {
-
-                    }
-                });*/
-
-               /* Log.d("QUEEEERRRYYYY",query);
-                ApiCall process = new ApiCall(searching_logo,searching_text);
-                process.execute(query);*/
-
-
             }
         });
         return view;
 
     }
 
+    @Override
+    public void onItemClick(int position) {
+        Intent detailIntent = new Intent(getContext(), RecipeActivity.class);
+        Recipe clickedItem = recipeList.get(position);
+
+        detailIntent.putExtra(EXTRA_URL,clickedItem.getImg());
+        detailIntent.putExtra(EXTRA_TITLE,clickedItem.getTitle());
+        detailIntent.putExtra(EXTRA_TITLE,clickedItem.getData());
+
+        startActivity(detailIntent);
+    }
 }
 
 

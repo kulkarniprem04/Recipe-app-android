@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class RecipeAdapter extends RecyclerView.Adapter<recipeViewHolder>{
     private Context mContext;
     private ArrayList<Recipe> mRecipe;
-    private OnItemClickListener mListener;
+    public static OnItemClickListener mListener;
 
     public interface OnItemClickListener{
         void onItemClick(int position);
