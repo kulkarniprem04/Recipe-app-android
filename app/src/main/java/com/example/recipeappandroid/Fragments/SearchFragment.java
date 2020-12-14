@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -126,10 +127,10 @@ public class SearchFragment extends Fragment implements RecipeAdapter.OnItemClic
     public void onItemClick(int position) {
         Intent detailIntent = new Intent(getContext(), RecipeActivity.class);
         Recipe clickedItem = recipeList.get(position);
-
+        Log.d("INTENT","INTENT OPENED");
         detailIntent.putExtra(EXTRA_URL,clickedItem.getImg());
         detailIntent.putExtra(EXTRA_TITLE,clickedItem.getTitle());
-        detailIntent.putExtra(EXTRA_TITLE,clickedItem.getData());
+        detailIntent.putExtra(EXTRA_DATA,clickedItem.getData());
 
         startActivity(detailIntent);
     }

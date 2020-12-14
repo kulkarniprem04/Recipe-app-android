@@ -61,5 +61,15 @@ public class RecipeAdapter extends RecyclerView.Adapter<recipeViewHolder>{
         return mRecipe.size();
     }
 
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
+
 
     }
