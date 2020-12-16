@@ -59,19 +59,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/recipe_name_detail"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/quicksand_medium"
             android:layout_centerHorizontal="true"
-            android:text="IRecipe Data"
+            android:text="Ingredients"
             android:textSize="30sp"
             android:textColor="@color/black"
             android:id="@+id/recipe_data_detail"
-
                 />
             <ListView
+                android:id="@+id/ingredients_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/recipe_data_detail"
-                android:paddingTop="5dp"/>
+                android:layout_marginTop="20dp"
+                android:padding="20dp"
+                />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 

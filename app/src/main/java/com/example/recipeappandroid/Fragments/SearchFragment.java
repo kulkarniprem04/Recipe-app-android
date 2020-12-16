@@ -11,19 +11,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.recipeappandroid.Adapter.RecipeAdapter;
@@ -42,6 +39,7 @@ public class SearchFragment extends Fragment implements RecipeAdapter.OnItemClic
     public static final String EXTRA_URL = "ImageUrl";
     public static final String EXTRA_TITLE = "RecipeTitle";
     public static final String EXTRA_DATA = "RecipeData";
+    public static final String EXTRA_INGREDIENTS = "RecipeIngredients";
     Button click;
     //public static TextView fetchedText;
     ImageView searching_logo;
@@ -50,6 +48,8 @@ public class SearchFragment extends Fragment implements RecipeAdapter.OnItemClic
     String query="";
     RecyclerView recyclerView;
     public static ArrayList<Recipe> recipeList;
+    ArrayList<String> Ingredients;
+
     public static RecipeAdapter recipeAdapter;
     public RequestQueue mRequestQueue;
     
@@ -84,7 +84,7 @@ public class SearchFragment extends Fragment implements RecipeAdapter.OnItemClic
             @Override
             public void onClick(View v) {
                 query = searchbar.getQuery().toString();
-                String url = "https://api.edamam.com/search?q=" + query + "&app_id=" + Api_id + "&app_key=" + Api_key;
+                String url = "http://192.168.0.107:5000/" + query;
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url,null, new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -97,8 +97,16 @@ public class SearchFragment extends Fragment implements RecipeAdapter.OnItemClic
                                 String recipe_img = recipe.getString("image");
                                 String recipe_title = recipe.getString("label");
                                 String recipe_data =  recipe.getString("source");
-                                Log.d("LABEL",recipe_title);
-                                recipeList.add(new Recipe(recipe_img,recipe_title,recipe_data));
+                                JSONArray ingredients = recipe.getJSONArray("ingredientLines");
+                                Ingredients = new ArrayList<String>();
+                                for (int j=0;j<ingredients.length();j++) {
+                                    String ingredient = ingredients.getString(j);
+                                    Ingredients.add(ingredient);
+                                    Log.d("INGREDIENTS",ingredient);
+                                }
+                                //RecipeActivity.listView.setAdapter(IngredientAdapter);
+
+                                recipeList.add(new Recipe(recipe_img,recipe_title,recipe_data, Ingredients));
                             }
                             recipeAdapter = new RecipeAdapter(getContext(),recipeList);
                             recyclerView.setAdapter(recipeAdapter);
@@ -130,7 +138,8 @@ public class SearchFragment extends Fragment implements RecipeAdapter.OnItemClic
         Log.d("INTENT","INTENT OPENED");
         detailIntent.putExtra(EXTRA_URL,clickedItem.getImg());
         detailIntent.putExtra(EXTRA_TITLE,clickedItem.getTitle());
-        detailIntent.putExtra(EXTRA_DATA,clickedItem.getData());
+        //detailIntent.putExtra(EXTRA_DATA,clickedItem.getData());
+        detailIntent.putExtra(EXTRA_INGREDIENTS,clickedItem.getIngredients());
 
         startActivity(detailIntent);
     }
