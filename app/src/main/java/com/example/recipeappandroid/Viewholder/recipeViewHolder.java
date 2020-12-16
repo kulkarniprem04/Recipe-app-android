@@ -1,12 +1,10 @@
 package com.example.recipeappandroid.Viewholder;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.recipeappandroid.Adapter.RecipeAdapter;
@@ -16,7 +14,6 @@ public class recipeViewHolder extends RecyclerView.ViewHolder {
     public static ImageView image;
     public static TextView recipe_title;
     public static TextView recipe_data;
-    private CardView card;
 
 
     public recipeViewHolder(@NonNull View itemView) {
@@ -24,12 +21,10 @@ public class recipeViewHolder extends RecyclerView.ViewHolder {
         image = itemView.findViewById(R.id.recipe_img);
         recipe_title = itemView.findViewById(R.id.recipe_title);
         recipe_data = itemView.findViewById(R.id.recipe_data);
-        card = itemView.findViewById(R.id.recipe_card);
 
-        card.setOnClickListener(new View.OnClickListener() {
+        itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("VIEWHOLDER CLICK","clicked");
                 if(RecipeAdapter.mListener!= null) {
                     int position = getAdapterPosition();
                     if(position != RecyclerView.NO_POSITION) {
@@ -38,18 +33,5 @@ public class recipeViewHolder extends RecyclerView.ViewHolder {
                 }
             }
         });
-
-        /*itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("VIEWHOLDER CLICK","clicked");
-                if(RecipeAdapter.mListener!= null) {
-                    int position = getAdapterPosition();
-                    if(position != RecyclerView.NO_POSITION) {
-                        RecipeAdapter.mListener.onItemClick(position);
-                    }
-                }
-            }
-        });*/
     }
 }

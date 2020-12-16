@@ -1,10 +1,11 @@
  package com.example.recipeappandroid.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.widget.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -55,6 +56,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<recipeViewHolder>{
         viewHolder.recipe_title.setText(recipe.getTitle());
         viewHolder.recipe_data.setText(recipe.getData());
     }
+
 
     @Override
     public int getItemCount() {
