@@ -71,7 +71,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/recipe_data_detail"
-                android:paddingTop="5dp"/>
+                android:paddingTop="5dp"
+                android:id="@+id/ingredients_list"
+                />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
