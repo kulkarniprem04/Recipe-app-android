@@ -1,6 +1,5 @@
 package com.example.recipeappandroid.Viewholder;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,7 +15,7 @@ public class recipeViewHolder extends RecyclerView.ViewHolder {
     public static ImageView image;
     public static TextView recipe_title;
     public static TextView recipe_data;
-    private CardView card;
+    public static CardView card;
 
 
     public recipeViewHolder(@NonNull View itemView) {
@@ -29,7 +28,6 @@ public class recipeViewHolder extends RecyclerView.ViewHolder {
         card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("VIEWHOLDER CLICK","clicked");
                 if(RecipeAdapter.mListener!= null) {
                     int position = getAdapterPosition();
                     if(position != RecyclerView.NO_POSITION) {
@@ -42,7 +40,6 @@ public class recipeViewHolder extends RecyclerView.ViewHolder {
         /*itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("VIEWHOLDER CLICK","clicked");
                 if(RecipeAdapter.mListener!= null) {
                     int position = getAdapterPosition();
                     if(position != RecyclerView.NO_POSITION) {
