@@ -15,6 +15,14 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         app:srcCompat="@drawable/ic_foody" />
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="-150dp"
+        android:layout_marginTop="-160dp"
+        android:src="@drawable/home_oval" />
 
     <ImageView
         android:layout_width="250dp"
@@ -76,6 +84,17 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="25dp"
         android:clickable="true"
+        android:id="@+id/loginbutton"
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/account"
+        android:text="Dont have an account? Click here"
+        android:fontFamily="@font/quicksand_medium"
+        android:layout_below="@+id/loginbutton"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:textSize="15dp"/>
 
 </RelativeLayout>
