@@ -103,26 +103,25 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/happy_cooking"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:text="Happy Cooking"
                 android:layout_marginLeft="55dp"
-                android:textSize="38dp"
-                android:fontFamily="@font/quicksand_bold"
                 android:layout_marginTop="440dp"
-                android:id="@+id/happy_cooking"
-                />
+                android:fontFamily="@font/quicksand_bold"
+                android:text="Happy Cooking"
+                android:textSize="38dp" />
 
             <Button
                 android:id="@+id/button"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="550dp"
-                android:layout_marginLeft="50dp"
                 android:layout_alignParentLeft="true"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="550dp"
                 android:background="@drawable/rounded_btn"
-                android:fontFamily="@font/quicksand_bold"
                 android:clickable="true"
+                android:fontFamily="@font/quicksand_bold"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:text="Get Started" />
 
