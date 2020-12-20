@@ -16,7 +16,7 @@
         android:id="@+id/RegisterUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="12"
         android:inputType="textPersonName"
         android:layout_marginLeft="30dp"
         android:drawableLeft="@drawable/ic_profile"
@@ -32,7 +32,7 @@
         android:id="@+id/Email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="12"
         android:inputType="textEmailAddress"
         android:layout_marginLeft="30dp"
         android:drawableLeft="@drawable/ic_email"
@@ -49,7 +49,7 @@
         android:id="@+id/Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="12"
         android:inputType="textPassword"
         android:layout_marginLeft="30dp"
         android:drawableLeft="@drawable/ic_pass"
@@ -83,7 +83,9 @@
         android:layout_below="@+id/registerpasswordbtn"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
-        android:textSize="15dp"/>
+        android:textSize="15dp"
+        android:clickable="true"/>
+
     <ImageView
         android:layout_width="240dp"
         android:layout_height="250dp"

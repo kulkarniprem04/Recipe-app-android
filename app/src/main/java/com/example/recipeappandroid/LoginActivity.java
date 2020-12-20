@@ -13,7 +13,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        TextView Login = (TextView) findViewById(R.id.account);
+        TextView Login = (TextView) findViewById(R.id.register);
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
     public void openRegisterActivity(){
-        Intent intent =  new Intent( this, RecipeActivity.class);
+        Intent intent =  new Intent( this, RegisterActivity.class);
         startActivity(intent);
     }
 }

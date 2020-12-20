@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public  void  openSearchActiviy() {
-        Intent intent = new Intent(this, searchActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 }
