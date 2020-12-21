@@ -72,7 +72,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="25dp"
         android:clickable="true"
-        android:id="@+id/registerpasswordbtn"
+        android:id="@+id/register"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -80,7 +80,7 @@
         android:id="@+id/account"
         android:text="Already have an account? Login."
         android:fontFamily="@font/quicksand_bold"
-        android:layout_below="@+id/registerpasswordbtn"
+        android:layout_below="@+id/register"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
         android:textSize="15dp"
