@@ -93,9 +93,9 @@ public class RegisterActivity extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(response);
                     String success = jsonObject.getString("message");
                     if(success.equals("success")) {
+                        Toast.makeText(RegisterActivity.this,"Registered successfully", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(RegisterActivity.this,searchActivity.class);
                         startActivity(intent);
-                        Toast.makeText(RegisterActivity.this,"Register success", Toast.LENGTH_SHORT);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

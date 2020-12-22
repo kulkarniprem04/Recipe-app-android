@@ -42,7 +42,7 @@
         android:src="@drawable/home_oval" />
 
     <EditText
-        android:id="@+id/Username"
+        android:id="@+id/LoginEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="12"
@@ -58,7 +58,7 @@
         android:shadowColor="@color/black"
         />
     <EditText
-        android:id="@+id/Password"
+        android:id="@+id/LoginPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="12"
@@ -69,7 +69,7 @@
         android:hint="Password"
         android:paddingTop="10dp"
         android:fontFamily="@font/quicksand_medium"
-        android:layout_below="@+id/Username"
+        android:layout_below="@+id/LoginEmail"
         android:shadowDx="1"
         android:shadowDy="1"
         android:shadowColor="@color/black"
@@ -80,7 +80,7 @@
         android:background="@drawable/rounded_btn"
         android:text="Login"
         android:fontFamily="@font/quicksand_bold"
-        android:layout_below="@+id/Password"
+        android:layout_below="@+id/LoginPassword"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="25dp"
         android:clickable="true"
