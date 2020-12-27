@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.recipeappandroid.Fragments.BookmarkFragment;
+
 public class MainActivity extends AppCompatActivity {
     private Button button;
     private ImageView ImageAnimation;
