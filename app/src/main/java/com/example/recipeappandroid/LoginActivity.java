@@ -20,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.recipeappandroid.Fragments.LandingFragment;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -83,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                     String success = jsonObject.getString("message");
                     Toast.makeText(LoginActivity.this,success, Toast.LENGTH_SHORT).show();
                     if(success.equals("Login Successful")) {
-                        Intent intent = new Intent(LoginActivity.this,searchActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, LandingFragment.class);
                         startActivity(intent);
                     }
                 } catch (JSONException e) {

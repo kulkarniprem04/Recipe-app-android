@@ -6,9 +6,71 @@
     tools:context=".Fragments.BookmarkFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Bookmark Fragment" />
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Developers"
+            android:fontFamily="@font/quicksand_bold"
+            android:textSize="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:id="@+id/developers"
+            />
 
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-250dp"
+            android:src="@drawable/home_oval"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prem Kulkarni"
+            android:textSize="25dp"
+            android:background="@drawable/background"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/quicksand_medium"
+            android:layout_below="@id/developers"
+            android:layout_marginTop="40dp"
+            android:id="@+id/prem"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sakshi Chaudhari"
+            android:textSize="25dp"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/quicksand_medium"
+            android:layout_below="@id/prem"
+            android:id="@+id/sakshi"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/background"
+
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Karan Wagh"
+            android:textSize="25dp"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/quicksand_medium"
+            android:layout_below="@id/sakshi"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/background"
+            android:id="@+id/karan"
+            />
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="420dp"
+            android:src="@drawable/ic_developer"
+            />
+
+    </RelativeLayout>
 </FrameLayout>

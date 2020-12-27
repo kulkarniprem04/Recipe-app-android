@@ -6,9 +6,44 @@
     tools:context=".Fragments.ProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="ProfileFragment" />
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EATRIGHT"
+            android:fontFamily="@font/quicksand_bold"
+            android:textSize="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:id="@+id/eatright"
+            />
 
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-250dp"
+            android:src="@drawable/home_oval"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="The users can view the list of recipes based on the ingredients used
+in the recipe. The app provides a heath meter which will display the nutritional values of
+carbs, proteins, fats etc. etc. The app aspires to run efficiently, while having an intuitive simple
+design that provides the user all the necessary functionalities."
+            android:textSize="25dp"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/quicksand_medium"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:layout_below="@id/eatright"
+            android:layout_marginTop="40dp"
+            />
+
+</RelativeLayout>
 </FrameLayout>
+
+
