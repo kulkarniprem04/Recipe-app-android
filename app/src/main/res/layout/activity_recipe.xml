@@ -47,7 +47,7 @@
                         android:text="Recipe name"
                         android:textSize="30sp"
                         android:layout_centerHorizontal="true"
-                        android:fontFamily="@font/quicksand_medium"
+                        android:fontFamily="@font/quicksand_bold"
                         android:id="@+id/recipe_name_detail"
                         android:layout_marginStart="16dp"
                         android:textAlignment="center"
@@ -70,7 +70,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/minutes"
                         android:layout_marginTop="15dp"
-                        android:fontFamily="@font/quicksand_medium"
+                        android:fontFamily="@font/quicksand_bold"
                         android:layout_centerHorizontal="true"
                         android:text="Ingredients"
                         android:textSize="30sp"
@@ -95,6 +95,20 @@
                         android:text="Full recipe"
                         android:background="@drawable/rounded_btn"
                         />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nutrients"
+                        android:textSize="30sp"
+                        android:textColor="@color/black"
+                        android:id="@+id/nutrients"
+                        android:layout_below="@+id/recipeurl"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:padding="20dp"
+                        />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -102,7 +116,7 @@
                         android:fontFamily="@font/quicksand_medium"
                         android:textColor="@color/black"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/recipeurl"
+                        android:layout_below="@+id/nutrients"
                         android:layout_marginTop="10dp"
                         />
                     <TextView

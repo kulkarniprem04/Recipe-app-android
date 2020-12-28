@@ -22,6 +22,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.recipeappandroid.Fragments.LandingFragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -79,7 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void RegisterUser(final String name,final String email, final String password) throws JSONException {
         RequestQueue MyRequestQueue = Volley.newRequestQueue(this);
-        String url = "http://192.168.0.107:5000/api/register/"; // <----enter your post url here
+        String url = "https://eatright-recipeapp.herokuapp.com/api/register/"; // <----enter your post url here
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("name", name);
         jsonObject.put("email",email);
@@ -94,7 +95,8 @@ public class RegisterActivity extends AppCompatActivity {
                     String success = jsonObject.getString("message");
                     if(success.equals("success")) {
                         Toast.makeText(RegisterActivity.this,"Registered successfully", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(RegisterActivity.this,searchActivity.class);
+                        Intent intent = new Intent(RegisterActivity.this, searchActivity.class);
+
                         startActivity(intent);
                     }
                 } catch (JSONException e) {

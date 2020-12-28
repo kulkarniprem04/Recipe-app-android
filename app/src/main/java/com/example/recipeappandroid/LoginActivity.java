@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void LoginUser(final String email,final String password) throws JSONException {
         RequestQueue MyRequestQueue = Volley.newRequestQueue(this);
-        String url = "http://192.168.0.107:5000/api/login/"; // <----enter your post url here
+        String url = "https://eatright-recipeapp.herokuapp.com/api/login/"; // <----enter your post url here
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("email",email);
         jsonObject.put("password",password);
@@ -82,9 +82,11 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     String success = jsonObject.getString("message");
+                    String name = jsonObject.getString("name");
                     Toast.makeText(LoginActivity.this,success, Toast.LENGTH_SHORT).show();
                     if(success.equals("Login Successful")) {
-                        Intent intent = new Intent(LoginActivity.this, LandingFragment.class);
+                        Intent intent = new Intent(LoginActivity.this, searchActivity.class);
+                        intent.putExtra("Username", name);
                         startActivity(intent);
                     }
                 } catch (JSONException e) {

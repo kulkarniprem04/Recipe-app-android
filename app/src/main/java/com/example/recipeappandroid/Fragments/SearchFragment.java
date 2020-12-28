@@ -94,7 +94,7 @@ public class SearchFragment extends Fragment implements RecipeAdapter.OnItemClic
             @Override
             public void onClick(View v) {
                 query = searchbar.getQuery().toString();
-                String url = "http://192.168.0.107:5000/api/recipes/" + query;
+                String url = "https://eatright-recipeapp.herokuapp.com/api/recipes/" + query;
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url,null, new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
