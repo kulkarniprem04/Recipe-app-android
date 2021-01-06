@@ -82,9 +82,9 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     String success = jsonObject.getString("message");
-                    String name = jsonObject.getString("name");
                     Toast.makeText(LoginActivity.this,success, Toast.LENGTH_SHORT).show();
                     if(success.equals("Login Successful")) {
+                        String name = jsonObject.getString("name");
                         Intent intent = new Intent(LoginActivity.this, searchActivity.class);
                         intent.putExtra("Username", name);
                         startActivity(intent);

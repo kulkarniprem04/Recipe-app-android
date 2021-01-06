@@ -94,9 +94,10 @@ public class RegisterActivity extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(response);
                     String success = jsonObject.getString("message");
                     if(success.equals("success")) {
+                        String name = jsonObject.getString("name");
                         Toast.makeText(RegisterActivity.this,"Registered successfully", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(RegisterActivity.this, searchActivity.class);
-
+                        intent.putExtra("Username", name);
                         startActivity(intent);
                     }
                 } catch (JSONException e) {
